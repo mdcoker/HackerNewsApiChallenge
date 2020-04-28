@@ -26,8 +26,7 @@ namespace Hacker_News_App.Controllers
                 storyIds = response.Content.ReadAsAsync<string[]>().Result;
             }
 
-            // return storyIds;
-            return new string[]{"23002228", "23002221", "23002217", "23002214", "23002209", "23007621"};
+            return storyIds;
         }
        
         [HttpGet("[action]")]
