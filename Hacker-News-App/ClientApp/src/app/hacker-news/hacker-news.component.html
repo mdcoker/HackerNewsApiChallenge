@@ -2,8 +2,8 @@
 
 <p *ngIf="!storyIds"><em>Loading...</em></p>
 
-<ul *ngIf="storyIds">
-    <li *ngFor="let id of storyIds">
+<div *ngIf="storyIds">
+    <div *ngFor="let id of storyIds">
         <app-hacker-story [storyId]="id"></app-hacker-story>
-    </li>
-</ul>
+    </div>
+</div>

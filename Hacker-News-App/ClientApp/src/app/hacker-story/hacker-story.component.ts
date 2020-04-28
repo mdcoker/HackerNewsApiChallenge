@@ -1,5 +1,5 @@
-import { Component, Inject, Input, NgModule } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Inject, Input, NgModule, OnInit } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @NgModule({
     declarations: [HackerStoryComponent],
@@ -12,4 +12,29 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HackerStoryComponent {
     @Input() storyId: string;
+    public storyInfo: HackerStory;
+
+    constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {}
+
+    ngOnInit() {
+        console.log(this.storyId);
+        let callParams = new HttpParams().set("storyId", this.storyId);
+        console.log(callParams);
+
+        this.http.get<HackerStory>(
+            this.baseUrl + 'api/HackerNews/GetStoryInfo',
+            {
+                params: callParams
+            }
+        ).subscribe(result => {
+            this.storyInfo = result;
+        }, error => console.error(error));
+    }
+    
+}
+
+interface HackerStory {
+    title: string;
+    author: string;
+    url: string;
 }
