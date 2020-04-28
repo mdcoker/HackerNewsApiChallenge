@@ -7,7 +7,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Running Locally
 
-Navigate to the directory below this one, Hacker-News-App/, and run:
+Navigate to the directory below this one, Hacker-News-App/, and build it:
+
+> dotnet build
+
+Then run it:
  
 > dotnet run
 
