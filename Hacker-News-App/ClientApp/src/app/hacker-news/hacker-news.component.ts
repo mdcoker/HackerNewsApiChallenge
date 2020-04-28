@@ -16,5 +16,5 @@ export class HackerNewsComponent {
 }
 
 interface HackerNewsInformation {
-    information: string;
+    information: string[];
 }

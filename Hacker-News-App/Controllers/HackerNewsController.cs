@@ -1,4 +1,7 @@
 using System;
+using System.Data;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,14 +13,26 @@ namespace Hacker_News_App.Controllers
         [HttpGet("[action]")]
         public HackerNewsInformation Information()
         {
+
+            IEnumerable<string> storyIds = null;
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://hacker-news.firebaseio.com/v0/newstories.json");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync("").Result;
+            if(response.IsSuccessStatusCode) {
+                storyIds = response.Content.ReadAsAsync<IEnumerable<string>>().Result;
+            }
+
             return new HackerNewsInformation {
-                Information = "This is my first Angular app!"
+                Information = storyIds
             };
         }
 
         public class HackerNewsInformation
         {
-            public string Information {get; set;}
+            public IEnumerable<string> Information {get; set;}
         }
     }
 }
