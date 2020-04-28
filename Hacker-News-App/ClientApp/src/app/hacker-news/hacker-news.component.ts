@@ -9,7 +9,7 @@ export class HackerNewsComponent {
     public storyIds: string[];
     public currentPageIds: string[];
     public currentStart = 0;
-    public pageLength = 99;
+    public pageLength = 10;
 
     constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
         http.get<string[]>(baseUrl + 'api/HackerNews/Information').subscribe(result => {
