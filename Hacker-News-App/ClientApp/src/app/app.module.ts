@@ -7,12 +7,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HackerNewsComponent } from './hacker-news/hacker-news.component';
+import { HackerStoryComponent } from './hacker-story/hacker-story.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HackerNewsComponent
+    HackerNewsComponent,
+    HackerStoryComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

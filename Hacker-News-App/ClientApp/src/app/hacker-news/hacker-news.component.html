@@ -4,6 +4,6 @@
 
 <ul *ngIf="storyIds">
     <li *ngFor="let id of storyIds">
-        {{ id }}
+        <app-hacker-story [storyId]="id"></app-hacker-story>
     </li>
 </ul>
