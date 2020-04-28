@@ -35,6 +35,6 @@ export class HackerStoryComponent {
 
 interface HackerStory {
     title: string;
-    author: string;
+    by: string;
     url: string;
 }

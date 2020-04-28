@@ -51,7 +51,7 @@ namespace Hacker_News_App.Controllers
         public class HackerStory
         {
             public string title {get; set;}
-            public string author {get; set;}
+            public string by {get; set;}
             public string url {get; set;}
         }
     }
