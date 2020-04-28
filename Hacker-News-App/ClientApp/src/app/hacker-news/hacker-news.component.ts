@@ -6,15 +6,11 @@ import { HttpClient } from '@angular/common/http';
     templateUrl: './hacker-news.component.html'
 })
 export class HackerNewsComponent {
-    public returnObject: HackerNewsInformation;
+    public storyIds: string[];
 
     constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-        http.get<HackerNewsInformation>(baseUrl + 'api/HackerNews/Information').subscribe(result => {
-            this.returnObject = result;
+        http.get<string[]>(baseUrl + 'api/HackerNews/Information').subscribe(result => {
+            this.storyIds = result;
         }, error => console.error(error));
     }
-}
-
-interface HackerNewsInformation {
-    information: string[];
 }
