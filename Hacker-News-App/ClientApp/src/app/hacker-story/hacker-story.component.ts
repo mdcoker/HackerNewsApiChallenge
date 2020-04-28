@@ -17,9 +17,7 @@ export class HackerStoryComponent {
     constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {}
 
     ngOnInit() {
-        console.log(this.storyId);
         let callParams = new HttpParams().set("storyId", this.storyId);
-        console.log(callParams);
 
         this.http.get<HackerStory>(
             this.baseUrl + 'api/HackerNews/GetStoryInfo',
