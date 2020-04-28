@@ -1,5 +1,9 @@
 <div *ngIf="storyInfo; else loading">
-    <h4>{{ storyInfo?.title }}</h4>
+    <!-- There has to be a better way to do a conditional href... -->
+    <a *ngIf="storyInfo?.url; else noLink" href="{{ storyInfo?.url }}">
+        <h4>{{ storyInfo?.title }}</h4>
+    </a>
+    <ng-template #noLink><h4>{{ storyInfo?.title }}</h4></ng-template>
     <h6>Submitted by {{ storyInfo?.by }}</h6>
 </div>
 <ng-template #loading><p>Loading story {{ storyId }} info...</p></ng-template>

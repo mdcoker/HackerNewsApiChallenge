@@ -27,7 +27,7 @@ namespace Hacker_News_App.Controllers
             }
 
             // return storyIds;
-            return new string[]{"23002228", "23002221", "23002217", "23002214", "23002209"};
+            return new string[]{"23002228", "23002221", "23002217", "23002214", "23002209", "23007621"};
         }
        
         [HttpGet("[action]")]
